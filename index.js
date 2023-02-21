@@ -2,7 +2,7 @@
 import puppeteer from 'puppeteer';
 
 // connections
-const BROWSER_COUNT = Number('100');
+const BROWSER_COUNT = Number('10');
 const MAX_RUNTIME = Number('10000');
 const URI = String('https://www.twitch.tv/vanessabob');
 let browsers = [];

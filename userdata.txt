@@ -1,0 +1,21 @@
+"
+  #!/bin/bash -xe \n
+    exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1 \n
+    echo \"Updating EC2 Instance . . .\" \n
+    yum update -y \n
+    echo \"Installing Git . . .\" \n
+    yum install git \n
+    echo \"Installing NVM . . .\" \n
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash \n
+    . ~/.nvm/nvm.sh \n
+    echo \"Installing Node . . .\" \n
+    nvm install node \n
+    echo \"Installing Target-Dummy-APIs . . .\" \n
+    cd /home/ec2-user \n
+    mkdir TargetDummyAPIs
+    cd /home/ec2-user/TargetDummyAPIs
+    curl -o- https://github.com/JoshuaTyler-GitHub/twitch-attack | bash \n
+    echo \"Starting TwitchAttack: \"[hello-world]\" ...\" \n
+    cd /home/ec2-user/TargetDummyAPIs/hello-world
+    npm start \n
+"
