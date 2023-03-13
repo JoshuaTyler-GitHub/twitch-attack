@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 
 exports.twitchattack = functions.https.onRequest(async (request, response) => {
     // connections
-    const BROWSER_COUNT = Number('10');
+    const BROWSER_COUNT = Number('1');
     const MAX_RUNTIME = Number('10000');
     const URI = String('https://www.twitch.tv/vanessabob');
     let browsers = [];
@@ -23,5 +23,5 @@ exports.twitchattack = functions.https.onRequest(async (request, response) => {
 
     return change.after.ref.set({
       status: 'SUCCESS',
-    }, {merge: true});
+    }, { merge: true });
   });
